@@ -1,0 +1,19 @@
+﻿<Window x:Class="DigitRecognition.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigitRecognition"
+        xmlns:cnv="clr-namespace:DigitRecognition.Converters"
+        mc:Ignorable="d"
+        Title="{Binding WindowTitle, FallbackValue = Test Value}" 
+        Height="450" 
+        Width="800">
+    <Grid>
+        <Frame
+            Content="{
+            Binding CurrentPage, 
+            Converter={cnv:ApplicationPageConverter}}">
+        </Frame>
+    </Grid>
+</Window>
