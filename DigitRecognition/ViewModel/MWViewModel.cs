@@ -15,9 +15,8 @@ namespace DigitRecognition.ViewModel
         #endregion
 
         #region Public Properties
-        public string WindowTitle{ get { return windowTitle; }}
-        public ICommand ChangeToRecognition { get; set; }
-        public ICommand ChangeToLearning { get; set; }
+        public string WindowTitle { get { return windowTitle; } }
+        public ICommand ChangePage { get; set; }
         public ApplicationPage CurrentPage
         {
             get => currentPage;
@@ -29,9 +28,22 @@ namespace DigitRecognition.ViewModel
         }
         #endregion
 
-        public MWViewModel(Window window) 
+        public MWViewModel(Window window)
         {
             mWindow = window;
+
+            ChangePage = new RelayParameterizedCommand((param) => Change(param));
+        }
+
+        private void Change(object param)
+        {
+            if (int.TryParse(param.ToString(), out int page))
+            {
+                if (page == 0)
+                    CurrentPage = ApplicationPage.RecognitionPage;
+                else
+                    CurrentPage = ApplicationPage.LearningPage;
+            }
         }
     }
 }

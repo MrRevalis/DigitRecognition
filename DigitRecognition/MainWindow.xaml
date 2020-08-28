@@ -18,8 +18,14 @@
             Orientation="Horizontal"
             Height="30"
             Grid.Row="0">
-            <Button Content="1"></Button>
-            <Button Content="2"></Button>
+            <Button 
+                Command="{Binding ChangePage}"
+                CommandParameter="0"
+                Content="1"></Button>
+            <Button 
+                Command="{Binding ChangePage}"
+                CommandParameter="1"
+                Content="2"></Button>
         </StackPanel>
         <Frame
             Grid.Row="1"

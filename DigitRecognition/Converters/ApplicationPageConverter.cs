@@ -23,6 +23,9 @@ namespace DigitRecognition.Converters
                 case ApplicationPage.RecognitionPage:
                     return new RecognitionPage();
 
+                case ApplicationPage.LearningPage:
+                    return new LearningPage();
+
                 default:
                     return null;
             }
