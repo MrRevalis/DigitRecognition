@@ -10,7 +10,19 @@
         Height="450" 
         Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel
+            Orientation="Horizontal"
+            Height="30"
+            Grid.Row="0">
+            <Button Content="1"></Button>
+            <Button Content="2"></Button>
+        </StackPanel>
         <Frame
+            Grid.Row="1"
             Content="{
             Binding CurrentPage, 
             Converter={cnv:ApplicationPageConverter}}">

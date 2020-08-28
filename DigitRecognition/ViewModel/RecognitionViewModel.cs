@@ -10,16 +10,17 @@ namespace DigitRecognition.ViewModel
     public class RecognitionViewModel : ViewModelBase
     {
         #region Private
-
+        private const int numberOfPosibilities = 10;
         #endregion
         #region Public Properties
         public ICommand RecognizeNumber { get; set; }
         public ICommand ClearCanvas { get; set; }
         public ICommand AddControls { get; set; }
-        public List<RecognitionResult> ListOfControls { get; set; } = new List<RecognitionResult>();
+        public List<RecognitionResult> ListOfControls { get; set; }
         #endregion
         public RecognitionViewModel()
         {
+            ListOfControls = new List<RecognitionResult>();
             RecognizeNumber = new RelayCommand(() => Recognize());
             ClearCanvas = new RelayParameterizedCommand((param) => Clear(param));
             AddControls = new RelayParameterizedCommand((param) => Add(param));
@@ -29,19 +30,27 @@ namespace DigitRecognition.ViewModel
         {
             
         }
-
+        /// <summary>
+        /// Clear ink from InkCanvas
+        /// </summary>
+        /// <param name="_object">InkCanvas</param>
         private void Clear(object _object)
         {
 
         }
 
+        /// <summary>
+        /// Add controls to StackPanel
+        /// </summary>
+        /// <param name="_object">StackPanel</param>
         private void Add(object _object)
         {
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < numberOfPosibilities; i++)
             {
                 ListOfControls.Add(new RecognitionResult());
-                ListOfControls[i].Number = $"{i}";
+                ListOfControls[i].Number = i;
+                ListOfControls[i].PosibilityNumber = i;
             }
             StackPanel stackPanel = _object as StackPanel;
 

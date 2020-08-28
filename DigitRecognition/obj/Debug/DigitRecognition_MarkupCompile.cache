@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\
+C:\Users\Dominik\OneDrive\Pulpit\DigitRecognition\DigitRecognition\obj\Debug\
 DigitRecognition
 none
 false
 DEBUG;TRACE
-C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\App.xaml
-31806915527
+C:\Users\Dominik\OneDrive\Pulpit\DigitRecognition\DigitRecognition\App.xaml
+417716776
 
 171021565573
 13-1505183044
-Controls\RecognitionResult.xaml;MainWindow.xaml;Pages\RecognitionPage.xaml;
+Controls\RecognitionResult.xaml;MainWindow.xaml;Pages\RecognitionPage.xaml;Styles\RecognitionResultStyle.xaml;
 
 False
 

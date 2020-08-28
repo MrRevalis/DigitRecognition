@@ -23,14 +23,24 @@ namespace DigitRecognition.Controls
         public RecognitionResult()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
 
-        public string Number
+        public int Number
         {
-            get { return (string)GetValue(NumberProperty); }
+            get { return (int)GetValue(NumberProperty); }
             set { SetValue(NumberProperty, value); }
         }
         public static readonly DependencyProperty NumberProperty = DependencyProperty.Register(
-                   nameof(Number), typeof(string), typeof(RecognitionResult), new FrameworkPropertyMetadata(null));
+                   nameof(Number), typeof(int), typeof(RecognitionResult), new FrameworkPropertyMetadata(null));
+
+        public double PosibilityNumber
+        {
+            get { return (int)GetValue(PosibilityNumberProperty); }
+            set { SetValue(PosibilityNumberProperty, value); }
+        }
+        public static readonly DependencyProperty PosibilityNumberProperty = DependencyProperty.Register(
+                   nameof(PosibilityNumber), typeof(double), typeof(RecognitionResult), new FrameworkPropertyMetadata(null));
+
     }
 }
