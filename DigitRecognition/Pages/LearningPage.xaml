@@ -24,8 +24,8 @@
 
         <StackPanel Grid.Column="1">
             <Button Content="Load Files"></Button>
-            <Button Content="Start learning"></Button>
-            <Button Content="Stop learning"></Button>
+            <Button Content="Start learning" Command="{Binding NetworkLearning}"></Button>
+            <Button Content="Stop learning" Command="{Binding StopLearning}"></Button>
             <Button Content="load network"></Button>
         </StackPanel>
         

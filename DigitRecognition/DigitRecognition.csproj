@@ -63,12 +63,18 @@
     </Compile>
     <Compile Include="Converters\ApplicationPageConverter.cs" />
     <Compile Include="DataModels\ApplicationPage.cs" />
+    <Compile Include="Network.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\LearningPage.xaml.cs">
       <DependentUpon>LearningPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RecognitionPage.xaml.cs">
       <DependentUpon>RecognitionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.pl-PL.Designer.cs">
+      <DependentUpon>Resources.pl-PL.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="ViewModel\Base\RelayCommand.cs" />
     <Compile Include="ViewModel\Base\RelayParameterizedCommand.cs" />
@@ -119,6 +125,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Resources.pl-PL.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.pl-PL.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

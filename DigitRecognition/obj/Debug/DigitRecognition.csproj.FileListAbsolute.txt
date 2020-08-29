@@ -66,3 +66,6 @@ C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\Styles
 C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\Pages\LearningPage.baml
 C:\Users\Dominik\OneDrive\Pulpit\DigitRecognition\DigitRecognition\obj\Debug\Pages\LearningPage.g.cs
 C:\Users\Dominik\OneDrive\Pulpit\DigitRecognition\DigitRecognition\obj\Debug\Pages\LearningPage.baml
+C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\bin\Debug\pl-PL\DigitRecognition.resources.dll
+C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\DigitRecognition.Properties.Resources.pl-PL.resources
+C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\pl-PL\DigitRecognition.resources.dll

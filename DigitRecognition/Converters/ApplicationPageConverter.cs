@@ -16,15 +16,18 @@ namespace DigitRecognition.Converters
     {
         private static ApplicationPageConverter mConverter = null;
 
+        private RecognitionPage recognitionPage = new RecognitionPage();
+        private LearningPage learningPage = new LearningPage();
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             switch ((ApplicationPage)value)
             {
                 case ApplicationPage.RecognitionPage:
-                    return new RecognitionPage();
+                    return recognitionPage;
 
                 case ApplicationPage.LearningPage:
-                    return new LearningPage();
+                    return learningPage;
 
                 default:
                     return null;
