@@ -22,21 +22,18 @@ namespace DigitRecognition.ViewModel
         {
             ListOfControls = new List<RecognitionResult>();
             RecognizeNumber = new RelayCommand(() => Recognize());
-            ClearCanvas = new RelayParameterizedCommand((param) => Clear(param));
             AddControls = new RelayParameterizedCommand((param) => Add(param));
+
+            ClearCanvas = new RelayParameterizedCommand((param) =>
+            {
+                ((InkCanvas)param).Strokes.Clear();
+            });
+
         }
 
         private void Recognize()
         {
             
-        }
-        /// <summary>
-        /// Clear ink from InkCanvas
-        /// </summary>
-        /// <param name="_object">InkCanvas</param>
-        private void Clear(object _object)
-        {
-
         }
 
         /// <summary>

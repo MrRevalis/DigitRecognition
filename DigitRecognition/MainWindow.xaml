@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DigitRecognition"
         xmlns:cnv="clr-namespace:DigitRecognition.Converters"
+        xmlns:prop="clr-namespace:DigitRecognition.AttachedProperties"
         mc:Ignorable="d"
         Title="{Binding WindowTitle, FallbackValue = Test Value}" 
         Height="450" 
@@ -29,6 +30,7 @@
         </StackPanel>
         <Frame
             Grid.Row="1"
+            prop:FrameHistoryProperty.FrameSettings="True"
             Content="{
             Binding CurrentPage, 
             Converter={cnv:ApplicationPageConverter}}">

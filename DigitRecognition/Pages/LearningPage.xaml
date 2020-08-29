@@ -13,7 +13,21 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LearningPage">
 
-    <Grid Background="Red">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBox></TextBox>
+        </StackPanel>
 
+        <StackPanel Grid.Column="1">
+            <Button Content="Load Files"></Button>
+            <Button Content="Start learning"></Button>
+            <Button Content="Stop learning"></Button>
+            <Button Content="load network"></Button>
+        </StackPanel>
+        
     </Grid>
 </local:BasePage>

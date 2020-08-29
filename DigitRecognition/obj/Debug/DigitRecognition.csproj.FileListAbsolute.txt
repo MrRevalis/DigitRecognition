@@ -64,3 +64,5 @@ C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\Pages\
 C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\App.baml
 C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\Styles\RecognitionResultStyle.baml
 C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\Pages\LearningPage.baml
+C:\Users\Dominik\OneDrive\Pulpit\DigitRecognition\DigitRecognition\obj\Debug\Pages\LearningPage.g.cs
+C:\Users\Dominik\OneDrive\Pulpit\DigitRecognition\DigitRecognition\obj\Debug\Pages\LearningPage.baml

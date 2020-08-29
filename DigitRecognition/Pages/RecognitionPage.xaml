@@ -12,6 +12,7 @@
     mc:Ignorable="d" 
     d:DesignHeight="450" 
     d:DesignWidth="800">
+    <!--on startup load prepared network, if user want to load his own network, need to go to learning page-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
