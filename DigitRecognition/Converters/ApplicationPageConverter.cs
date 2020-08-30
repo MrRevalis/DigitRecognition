@@ -15,19 +15,19 @@ namespace DigitRecognition.Converters
     public class ApplicationPageConverter : MarkupExtension, IValueConverter
     {
         private static ApplicationPageConverter mConverter = null;
+        public RecognitionPage RecognitionPage { get; set; } = new RecognitionPage();
+        public LearningPage LearningPage { get; set; } = new LearningPage();
 
-        private RecognitionPage recognitionPage = new RecognitionPage();
-        private LearningPage learningPage = new LearningPage();
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             switch ((ApplicationPage)value)
             {
                 case ApplicationPage.RecognitionPage:
-                    return recognitionPage;
+                    return RecognitionPage;
 
                 case ApplicationPage.LearningPage:
-                    return learningPage;
+                    return LearningPage;
 
                 default:
                     return null;

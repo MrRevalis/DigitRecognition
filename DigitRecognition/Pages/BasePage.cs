@@ -10,6 +10,7 @@ namespace DigitRecognition.Pages
     using DigitRecognition.ViewModel.Base;
     public class BasePage<VM> : Page where VM : ViewModelBase, new()
     {
+        public Network NeuralNetwork { get; set; } = new Network();
         private VM viewModel;
         public VM ViewModel
         {
@@ -25,7 +26,12 @@ namespace DigitRecognition.Pages
 
         public BasePage()
         {
-            this.ViewModel = new VM();
+            //this.ViewModel = new VM();
+
+            this.ViewModel = (VM)Activator.CreateInstance(
+                typeof(VM),
+                new object[] { NeuralNetwork }
+                );
         }
     }
 }

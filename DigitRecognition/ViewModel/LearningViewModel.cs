@@ -19,7 +19,8 @@ namespace DigitRecognition.ViewModel
         public LearningViewModel()
         {
 
-            NetworkLearning = new RelayCommand(async () => {
+            NetworkLearning = new RelayCommand(async () => 
+            {
                 TokenSource = new CancellationTokenSource();
                 Token = TokenSource.Token;
                 await Task.Run(() => StartLearning(Token),Token);

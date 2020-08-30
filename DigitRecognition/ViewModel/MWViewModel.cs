@@ -17,7 +17,6 @@ namespace DigitRecognition.ViewModel
         #region Public Properties
         public string WindowTitle { get { return windowTitle; } }
         public ICommand ChangePage { get; set; }
-        public Network NeuralNetwork { get; set; }
         public ApplicationPage CurrentPage
         {
             get => currentPage;
@@ -32,7 +31,6 @@ namespace DigitRecognition.ViewModel
         public MWViewModel(Window window)
         {
             mWindow = window;
-            NeuralNetwork = new Network();
             ChangePage = new RelayParameterizedCommand((param) => Change(param));
         }
 
