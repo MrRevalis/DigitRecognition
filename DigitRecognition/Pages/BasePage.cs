@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using DigitRecognition.Core;
 
 namespace DigitRecognition.Pages
 {
-    using DigitRecognition.ViewModel.Base;
     public class BasePage<VM> : Page where VM : ViewModelBase, new()
     {
-        public Network NeuralNetwork { get; set; } = new Network();
         private VM viewModel;
         public VM ViewModel
         {
@@ -26,12 +20,9 @@ namespace DigitRecognition.Pages
 
         public BasePage()
         {
-            //this.ViewModel = new VM();
 
-            this.ViewModel = (VM)Activator.CreateInstance(
-                typeof(VM),
-                new object[] { NeuralNetwork }
-                );
+            this.ViewModel = new VM();
+
         }
     }
 }

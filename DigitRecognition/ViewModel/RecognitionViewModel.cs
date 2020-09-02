@@ -1,11 +1,16 @@
 ﻿using System.Windows.Input;
-using DigitRecognition.Controls;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using DigitRecognition.Core;
 
 namespace DigitRecognition.ViewModel
 {
-    using DigitRecognition.ViewModel.Base;
-    using System.Windows.Controls;
+    using DigitRecognition.Controls;
 
     public class RecognitionViewModel : ViewModelBase
     {
@@ -21,7 +26,7 @@ namespace DigitRecognition.ViewModel
         public RecognitionViewModel()
         {
             ListOfControls = new List<RecognitionResult>();
-            RecognizeNumber = new RelayCommand(() => Recognize());
+            RecognizeNumber = new RelayParameterizedCommand((param) => Recognize(param));
             AddControls = new RelayParameterizedCommand((param) => Add(param));
 
             ClearCanvas = new RelayParameterizedCommand((param) =>
@@ -31,9 +36,27 @@ namespace DigitRecognition.ViewModel
 
         }
 
-        private void Recognize()
+        private void Recognize(object _object)
         {
-            
+            InkCanvas inkCanvas = _object as InkCanvas;
+            int width = (int)inkCanvas.ActualWidth;
+            int height = (int)inkCanvas.ActualHeight;
+            int dpi = 96;
+
+            RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap(width, height, dpi, dpi, PixelFormats.Default);
+            renderTargetBitmap.Render(inkCanvas);
+
+            BmpBitmapEncoder bitmapEncoder = new BmpBitmapEncoder();
+            bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
+
+            MemoryStream memoryStream = new MemoryStream();
+            bitmapEncoder.Save(memoryStream);
+
+            Bitmap bitmap = new Bitmap(memoryStream);
+            bitmap.Save("test.png", ImageFormat.Png);
+
+            Bitmap xD = Helper.ResizeBitmap(bitmap,32 ,32);
+
         }
 
         /// <summary>

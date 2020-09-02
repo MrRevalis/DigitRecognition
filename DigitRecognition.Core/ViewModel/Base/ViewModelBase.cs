@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PropertyChanged;
 using System.ComponentModel;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DigitRecognition.ViewModel.Base
+namespace DigitRecognition.Core
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

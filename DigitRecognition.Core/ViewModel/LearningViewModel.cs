@@ -2,11 +2,9 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows;
 
-namespace DigitRecognition.ViewModel
+namespace DigitRecognition.Core
 {
-    using DigitRecognition.ViewModel.Base;
 
     public class LearningViewModel : ViewModelBase
     {

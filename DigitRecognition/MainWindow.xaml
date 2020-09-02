@@ -31,9 +31,9 @@
         <Frame
             Grid.Row="1"
             prop:FrameHistoryProperty.FrameSettings="True"
-            Content="{
-            Binding CurrentPage, 
-            Converter={cnv:ApplicationPageConverter}}">
+            Content="{Binding ApplicationViewModel.CurrentPage, 
+                              Source={x:Static local:ViewModelLocator.Instance}, 
+                              Converter={cnv:ApplicationPageConverter}}">
         </Frame>
     </Grid>
 </Window>

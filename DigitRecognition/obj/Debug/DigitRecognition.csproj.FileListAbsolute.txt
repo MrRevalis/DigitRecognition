@@ -69,3 +69,11 @@ C:\Users\Dominik\OneDrive\Pulpit\DigitRecognition\DigitRecognition\obj\Debug\Pag
 C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\bin\Debug\pl-PL\DigitRecognition.resources.dll
 C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\DigitRecognition.Properties.Resources.pl-PL.resources
 C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\pl-PL\DigitRecognition.resources.dll
+C:\Users\Dominik\OneDrive\Pulpit\DigitRecognition\DigitRecognition\bin\Debug\pl-PL\DigitRecognition.resources.dll
+C:\Users\Dominik\OneDrive\Pulpit\DigitRecognition\DigitRecognition\obj\Debug\DigitRecognition.Properties.Resources.pl-PL.resources
+C:\Users\Dominik\OneDrive\Pulpit\DigitRecognition\DigitRecognition\obj\Debug\pl-PL\DigitRecognition.resources.dll
+C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\bin\Debug\DigitRecognition.Core.dll
+C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\bin\Debug\DigitRecognition.Core.pdb
+C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\DigitRecognition.csproj.CopyComplete
+C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\bin\Debug\Ninject.dll
+C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\bin\Debug\Ninject.xml

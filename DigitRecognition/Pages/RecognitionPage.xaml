@@ -25,14 +25,19 @@
         <StackPanel
             Grid.Row="0"
             Grid.Column="0">
+
             <Label
-                Content="Draw number"
-                ></Label>
-            <InkCanvas
-                x:Name="Paint"
-                Background="Red"
-                prop:InkCanvasProperty.InkCanvasSettings="{Binding Path=RecognizeNumber}"
+                Content="Draw number">
+            </Label>
+            
+            <Border>
+                <InkCanvas
+                    x:Name="Paint"
+                    Background="Red"
+                    prop:InkCanvasProperty.InkCanvasSettings="{Binding Path=RecognizeNumber}"
                 ></InkCanvas>
+            </Border>
+
             <Button
                 Content="Clear"
                 Command="{Binding ClearCanvas}"

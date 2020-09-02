@@ -44,7 +44,7 @@ namespace DigitRecognition.AttachedProperties
 
             inkCanvas.MouseUp += (sender, args) =>
             {
-                GetInkCanvasSettings(inkCanvas).Execute(args);
+                GetInkCanvasSettings(inkCanvas).Execute(inkCanvas);
                 args.Handled = true;
             };
         }
