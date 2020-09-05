@@ -1,6 +1,8 @@
 ﻿C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FC:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\App.xaml;;
-FC:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\Controls\RecognitionResult.xaml;;
+FC:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\Controls\PageHost.xaml;;
+FC:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\Controls\RecognitionResultControl.xaml;;
+FC:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\Controls\RecognitionResultItemControl.xaml;;
 FC:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\MainWindow.xaml;;
 FC:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\Pages\LearningPage.xaml;;
 FC:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\Pages\RecognitionPage.xaml;;

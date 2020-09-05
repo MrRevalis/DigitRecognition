@@ -1,13 +1,13 @@
-﻿<UserControl x:Class="DigitRecognition.Controls.RecognitionResult"
+﻿<UserControl x:Class="DigitRecognition.Controls.RecognitionResultItemControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DigitRecognition.Controls"
+             xmlns:core="clr-namespace:DigitRecognition.Core;assembly=DigitRecognition.Core"
              mc:Ignorable="d" 
-             d:DesignHeight="450" 
-             d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid d:DataContext="{x:Static core:RecognitionModel.Instance}">
         <Border
             Style="{StaticResource BorderStyle}">
             <StackPanel
@@ -18,10 +18,10 @@
                 </Label>
                 <ProgressBar
                     Style="{StaticResource ProgressBarStyle}"
-                    Value="{Binding PosibilityNumber}">
+                    Value="{Binding NumberPosibility}">
                 </ProgressBar>
                 <Label 
-                    Content="{Binding PosibilityNumber}">
+                    Content="{Binding NumberPosibility}">
                 </Label>
                 <Label 
                     Content="%">

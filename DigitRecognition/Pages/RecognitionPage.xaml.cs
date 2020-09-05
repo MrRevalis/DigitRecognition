@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DigitRecognition.Core;
 
 namespace DigitRecognition.Pages
 {
@@ -22,6 +23,11 @@ namespace DigitRecognition.Pages
     public partial class RecognitionPage : BasePage<RecognitionViewModel>
     {
         public RecognitionPage()
+        {
+            InitializeComponent();
+        }
+
+        public RecognitionPage(RecognitionViewModel specificViewModel) : base(specificViewModel)
         {
             InitializeComponent();
         }

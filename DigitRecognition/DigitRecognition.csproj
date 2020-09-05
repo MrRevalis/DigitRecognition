@@ -59,13 +59,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttachedProperties\AutoScrollProperty.cs" />
     <Compile Include="AttachedProperties\FrameHistoryProperty.cs" />
     <Compile Include="AttachedProperties\InkCanvasProperty.cs" />
     <Compile Include="AttachedProperties\StackPanelProperty.cs" />
-    <Compile Include="Controls\RecognitionResult.xaml.cs">
-      <DependentUpon>RecognitionResult.xaml</DependentUpon>
+    <Compile Include="Controls\PageHost.xaml.cs">
+      <DependentUpon>PageHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RecognitionResultControl.xaml.cs">
+      <DependentUpon>RecognitionResultControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RecognitionResultItemControl.xaml.cs">
+      <DependentUpon>RecognitionResultItemControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\ApplicationPageConverter.cs" />
+    <Compile Include="Converters\ApplicationPageHelpers.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\LearningPage.xaml.cs">
       <DependentUpon>LearningPage.xaml</DependentUpon>
@@ -79,9 +87,16 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="ViewModel\MWViewModel.cs" />
-    <Compile Include="ViewModel\RecognitionViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Page Include="Controls\RecognitionResult.xaml">
+    <Page Include="Controls\PageHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\RecognitionResultControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\RecognitionResultItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -3,7 +3,7 @@ using DigitRecognition.Core;
 
 namespace DigitRecognition.Pages
 {
-    public class BasePage<VM> : Page where VM : ViewModelBase, new()
+    public class BasePage<VM> : BasePage where VM : ViewModelBase, new()
     {
         private VM viewModel;
         public VM ViewModel
@@ -18,11 +18,21 @@ namespace DigitRecognition.Pages
             }
         }
 
-        public BasePage()
+        public BasePage() : base()
         {
-
-            this.ViewModel = new VM();
-
+            this.ViewModel = IoC.Get<VM>();
         }
+
+        public BasePage(VM specifiedViewModel = null) : base()
+        {
+            if (specifiedViewModel != null)
+                ViewModel = specifiedViewModel;
+            else
+                ViewModel = IoC.Get<VM>();
+        }
+    }
+    public class BasePage : UserControl
+    {
+        public BasePage() { }
     }
 }

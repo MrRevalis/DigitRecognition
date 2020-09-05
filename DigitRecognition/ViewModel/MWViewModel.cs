@@ -1,7 +1,6 @@
 ﻿using System.Windows.Input;
 using System.Windows;
 using DigitRecognition.Core;
-using DigitRecognition.Core.IoC;
 using System.Threading.Tasks;
 
 namespace DigitRecognition.ViewModel
@@ -30,9 +29,9 @@ namespace DigitRecognition.ViewModel
             if (int.TryParse(param.ToString(), out int page))
             {
                 if (page == 0)
-                    IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.RecognitionPage;
+                    IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.RecognitionPage);
                 else
-                    IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.LearningPage;
+                    IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.LearningPage);
             }
             await Task.Delay(1);
         }

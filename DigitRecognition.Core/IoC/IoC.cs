@@ -1,11 +1,6 @@
 ﻿using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DigitRecognition.Core.IoC
+namespace DigitRecognition.Core
 {
     public static class IoC
     {
@@ -19,6 +14,8 @@ namespace DigitRecognition.Core.IoC
         private static void BindViewModel()
         {
             Kernel.Bind<ApplicationViewModel>().ToConstant(new ApplicationViewModel());
+            Kernel.Bind<LearningViewModel>().ToConstant(new LearningViewModel());
+            Kernel.Bind<RecognitionViewModel>().ToConstant(new RecognitionViewModel());
         }
 
         public static T Get<T>()

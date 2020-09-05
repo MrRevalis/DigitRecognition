@@ -38,9 +38,9 @@ namespace DigitRecognition.AttachedProperties
 
             DrawingAttributes drawingAttributes = inkCanvas.DefaultDrawingAttributes;
             //drawingAttributes.Color = Color.FromRgb(255, 255, 0);
-            drawingAttributes.Color = Colors.White;
-            drawingAttributes.Width = 6D;
-            drawingAttributes.Height = 6D;
+            drawingAttributes.Color = Colors.Black;
+            drawingAttributes.Width = 10D;
+            drawingAttributes.Height = 10D;
 
             inkCanvas.MouseUp += (sender, args) =>
             {

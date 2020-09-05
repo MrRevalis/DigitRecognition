@@ -26,5 +26,10 @@ namespace DigitRecognition.Pages
         {
             InitializeComponent();
         }
+
+        public LearningPage(LearningViewModel specificViewModel) : base(specificViewModel)
+        {
+            InitializeComponent();
+        }
     }
 }

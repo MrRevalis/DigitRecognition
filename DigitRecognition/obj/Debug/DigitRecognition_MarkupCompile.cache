@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\App.xaml
-5-483001491
+7-113211339
 
-18-1934474423
+20-1172231751
 16-181286496
-Controls\RecognitionResult.xaml;MainWindow.xaml;Pages\LearningPage.xaml;Pages\RecognitionPage.xaml;Styles\RecognitionResultStyle.xaml;
+Controls\PageHost.xaml;Controls\RecognitionResultControl.xaml;Controls\RecognitionResultItemControl.xaml;MainWindow.xaml;Pages\LearningPage.xaml;Pages\RecognitionPage.xaml;Styles\RecognitionResultStyle.xaml;
 
 False
 

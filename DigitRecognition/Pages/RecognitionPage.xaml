@@ -6,13 +6,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:DigitRecognition.Pages"
-    xmlns:vm="clr-namespace:DigitRecognition.ViewModel"
+    xmlns:vm="clr-namespace:DigitRecognition.Core;assembly=DigitRecognition.Core"
     xmlns:ctrl="clr-namespace:DigitRecognition.Controls"
     xmlns:prop="clr-namespace:DigitRecognition.AttachedProperties"
     mc:Ignorable="d" 
     d:DesignHeight="450" 
     d:DesignWidth="800">
-    <!--on startup load prepared network, if user want to load his own network, need to go to learning page-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -25,7 +24,7 @@
         <StackPanel
             Grid.Row="0"
             Grid.Column="0">
-
+            
             <Label
                 Content="Draw number">
             </Label>
@@ -33,7 +32,7 @@
             <Border>
                 <InkCanvas
                     x:Name="Paint"
-                    Background="Red"
+                    Background="White"
                     prop:InkCanvasProperty.InkCanvasSettings="{Binding Path=RecognizeNumber}"
                 ></InkCanvas>
             </Border>
@@ -41,16 +40,14 @@
             <Button
                 Content="Clear"
                 Command="{Binding ClearCanvas}"
-                CommandParameter="{Binding ElementName=Paint}"
-                ></Button>
+                CommandParameter="{Binding ElementName=Paint}">
+            </Button>
+            
         </StackPanel>
 
         <StackPanel
-            x:Name="ControlsField"
-            prop:StackPanelProperty.StackPanelCommand="{Binding AddControls}"
-            prop:StackPanelProperty.StackPanelParameter="{Binding ElementName=ControlsField}"
-            Grid.Row="0"
             Grid.Column="1">
+            <ctrl:RecognitionResultControl></ctrl:RecognitionResultControl>
         </StackPanel>
         
     </Grid>

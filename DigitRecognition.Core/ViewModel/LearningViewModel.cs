@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 
 namespace DigitRecognition.Core
 {
-
     public class LearningViewModel : ViewModelBase
     {
         #region Public Properties
@@ -13,15 +12,17 @@ namespace DigitRecognition.Core
         public ICommand StopLearning { get; set; }
         public CancellationToken Token { get; set; }
         public CancellationTokenSource TokenSource { get; set; }
+        public string LearningProgress { get; set; } = "";
         #endregion
+
+        #region Constructor
         public LearningViewModel()
         {
-
-            NetworkLearning = new RelayCommand(async () => 
+            NetworkLearning = new RelayCommand(async () =>
             {
                 TokenSource = new CancellationTokenSource();
                 Token = TokenSource.Token;
-                await Task.Run(() => StartLearning(Token),Token);
+                await Task.Run(() => StartLearning(Token), Token);
             });
 
             StopLearning = new RelayCommand(() =>
@@ -29,8 +30,10 @@ namespace DigitRecognition.Core
                 TokenSource.Cancel();
                 Console.WriteLine("STOP");
             });
-
         }
+        #endregion
+
+        #region Methods
 
         private void StartLearning(CancellationToken cancellationToken)
         {
@@ -41,10 +44,13 @@ namespace DigitRecognition.Core
                     return;
 
                 Console.WriteLine(i);
+                LearningProgress += i.ToString() + "\n";
                 i++;
                 Thread.Sleep(1000);
+
             }
-        }
+        } 
+        #endregion
 
     }
 }
