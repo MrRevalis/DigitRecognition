@@ -1,16 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Runtime.CompilerServices;
 
 namespace DigitRecognition.Core
 {
-    public class Helper
+    public static class Helper
     {
-        public static List<double> BitmapToArray(Bitmap bitmap)
-        {
-            return null;
-        }
-
         public static Bitmap ResizeBitmap(Bitmap sourceBitmap, string name, int width, int height)
         {
             /*Bitmap resizedBitmap = new Bitmap(width, height);
@@ -25,6 +21,11 @@ namespace DigitRecognition.Core
             resized.Save($"resized_{name}.png", ImageFormat.Png);
             return resized;
 
+        }
+
+        public static Bitmap Resize(this Bitmap bitmap, int width, int height)
+        {
+            return new Bitmap(bitmap, width, height);
         }
     }
 }

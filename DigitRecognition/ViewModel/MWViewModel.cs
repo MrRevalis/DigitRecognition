@@ -16,12 +16,17 @@ namespace DigitRecognition.ViewModel
         #region Public Properties
         public string WindowTitle { get { return windowTitle; } }
         public ICommand ChangePage { get; set; }
+        public ICommand Minimalize { get; set; }
+        public ICommand CloseProgram { get; set; }
         #endregion
 
         public MWViewModel(Window window)
         {
             mWindow = window;
             ChangePage = new RelayParameterizedCommand(async (param) => await Change(param));
+
+            Minimalize = new RelayCommand(() => window.WindowState = WindowState.Minimized);
+            CloseProgram = new RelayCommand(() => window.Close());
         }
 
         private async Task Change(object param)

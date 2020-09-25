@@ -20,16 +20,30 @@
             <TextBox 
                 Text="{Binding LearningProgress}" 
                 prop:AutoScrollProperty.AutoScrollSettings="True"
-                MaxHeight="50" 
+                MaxHeight="100"
+                Height="100"
                 ScrollViewer.CanContentScroll="True"
-                ScrollViewer.VerticalScrollBarVisibility="Auto"></TextBox>
+                ScrollViewer.VerticalScrollBarVisibility="Auto">
+            </TextBox>
+
+            <Border BorderBrush="DarkGreen">
+                <StackPanel>
+                    <Label Content="Create new nerual network" Margin="0 50 0 5"></Label>
+                    <TextBox
+                        prop:TextBoxNetworkProperty.TextBoxDigits="True"
+                        Text="{Binding NetworkLayers}">
+                    </TextBox>
+                    <Label Content="wpisz kolejne wartswy z iloscia neuironow"></Label>
+                    <Button Content="Create Network" Command="{Binding CreateNewNetwork}"></Button>
+                </StackPanel>
+            </Border>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <Button Content="Load Files"></Button>
+            <Button Content="Load Files to learning" Command="{Binding LoadLearningSource}"></Button>
             <Button Content="Start learning" Command="{Binding NetworkLearning}"></Button>
             <Button Content="Stop learning" Command="{Binding StopLearning}"></Button>
-            <Button Content="load network"></Button>
+            <Button Content="load network" Command="{Binding LoadNetworkSource}"></Button>
         </StackPanel>
         
     </Grid>

@@ -8,9 +8,12 @@
         xmlns:prop="clr-namespace:DigitRecognition.AttachedProperties"
         xmlns:ctrl="clr-namespace:DigitRecognition.Controls"
         mc:Ignorable="d"
-        Title="{Binding WindowTitle, FallbackValue = Test Value}" 
+        WindowStyle="None"
+        Title="{Binding WindowTitle, FallbackValue = Test}" 
+        ResizeMode="NoResize"
         Height="450" 
         Width="800">
+    <!--
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -36,4 +39,58 @@
             CurrentPageViewModel="{Binding ApplicationViewModel.CurrentPageViewModel, Source={x:Static local:ViewModelLocator.Instance}}">
         </ctrl:PageHost>
     </Grid>
+    -->
+
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <Border
+                            Padding="6">
+                            <Grid>
+                                
+                                <Border 
+                                    Background="Green">
+                                    <Border.Effect>
+                                        <DropShadowEffect
+                                            ShadowDepth="0"
+                                            Opacity="0.9">
+                                        </DropShadowEffect>
+                                    </Border.Effect>
+                                </Border>
+                                
+                                <Grid>
+                                    
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="42"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid
+                                        Grid.Row="0">
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Button
+                                            Grid.Column="0">
+                                        </Button>
+                                        
+                                        
+                                    </Grid>
+                                    
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
 </Window>

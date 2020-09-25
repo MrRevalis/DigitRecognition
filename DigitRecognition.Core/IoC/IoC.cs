@@ -13,9 +13,15 @@ namespace DigitRecognition.Core
 
         private static void BindViewModel()
         {
+            Kernel.Bind<Network>().ToConstant(new Network());
+
             Kernel.Bind<ApplicationViewModel>().ToConstant(new ApplicationViewModel());
-            Kernel.Bind<LearningViewModel>().ToConstant(new LearningViewModel());
             Kernel.Bind<RecognitionViewModel>().ToConstant(new RecognitionViewModel());
+
+            Kernel.Bind<LearningViewModel>().ToConstant(new LearningViewModel()
+            {
+                NetworkLayers = IoC.Get<Network>().LayerDescription
+            });
         }
 
         public static T Get<T>()

@@ -21,6 +21,7 @@
                     Value="{Binding NumberPosibility}">
                 </ProgressBar>
                 <Label 
+                    Style="{StaticResource PosibilityNumber}"
                     Content="{Binding NumberPosibility}">
                 </Label>
                 <Label 

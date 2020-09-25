@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
@@ -56,6 +59,16 @@
   <ItemGroup>
     <Compile Include="DataModels\ApplicationPage.cs" />
     <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Helpers\RandomClass.cs" />
+    <Compile Include="NeuralNetwork\ActivationMethods\Sigmoid.cs" />
+    <Compile Include="NeuralNetwork\DataSet\DataSet.cs" />
+    <Compile Include="NeuralNetwork\Layers\Layer.cs" />
+    <Compile Include="NeuralNetwork\Network\ImportExport\ExportNetwork.cs" />
+    <Compile Include="NeuralNetwork\Network\ImportExport\ImportNetwork.cs" />
+    <Compile Include="NeuralNetwork\Network\Network.cs" />
+    <Compile Include="NeuralNetwork\Network\ImportExport\NetworkHelper.cs" />
+    <Compile Include="NeuralNetwork\Neurons\Neuron.cs" />
+    <Compile Include="NeuralNetwork\Synapses\Synapse.cs" />
     <Compile Include="ViewModel\RecognitionResult\RecognitionModelViewModel.cs" />
     <Compile Include="ViewModel\RecognitionResult\RecognitionModel.cs" />
     <Compile Include="IoC\IoC.cs" />

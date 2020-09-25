@@ -12,9 +12,9 @@ DEBUG;TRACE
 C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\App.xaml
 7-113211339
 
-21-2014591118
+221564642038
 16-181286496
 Controls\PageHost.xaml;Controls\RecognitionResultControl.xaml;Controls\RecognitionResultItemControl.xaml;MainWindow.xaml;Pages\LearningPage.xaml;Pages\RecognitionPage.xaml;Styles\RecognitionResultStyle.xaml;
 
-True
+False
 

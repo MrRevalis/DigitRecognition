@@ -1,11 +1,9 @@
 ﻿using System.Windows.Input;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
-using System;
 
 namespace DigitRecognition.Core
 {
@@ -25,12 +23,12 @@ namespace DigitRecognition.Core
 
         public RecognitionViewModel()
         {
-            //ListOfControls = new List<RecognitionResult>();
             RecognizeNumber = new RelayParameterizedCommand((param) => Recognize(param));
 
             ClearCanvas = new RelayParameterizedCommand((param) =>
             {
                 ((InkCanvas)param).Strokes.Clear();
+                RecognitionModel.Instance.ClearPosibilities();
             });
         }
         #endregion
@@ -54,13 +52,11 @@ namespace DigitRecognition.Core
 
             Bitmap bitmap = new Bitmap(memoryStream);
 
-            Random random = new Random();
-            int number = random.Next();
+            DataSet dataSet = new DataSet(bitmap);
 
-            bitmap.Save($"test_{number}.png", ImageFormat.Png);
+            var results = IoC.Get<Network>().Calculate(dataSet.Brightness);
 
-            Bitmap xD = Helper.ResizeBitmap(bitmap, number.ToString(), 32, 32);
-
+            RecognitionModel.Instance.ChangePosibilities(results);
         }
         #endregion
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 
 namespace DigitRecognition.Core
 {
@@ -15,9 +16,25 @@ namespace DigitRecognition.Core
             {
                 var x = new RecognitionModelViewModel();
                 x.Number = i;
-                x.NumberPosibility = i;
+                x.NumberPosibility = 0;
 
                 RecognitionModelCollection.Add(x);
+            }
+        }
+
+        public void ChangePosibilities(double[] data)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                RecognitionModelCollection[i].NumberPosibility = Math.Round(data[i] * 100, 2);
+            }
+        }
+
+        public void ClearPosibilities()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                RecognitionModelCollection[i].NumberPosibility = 0;
             }
         }
     }

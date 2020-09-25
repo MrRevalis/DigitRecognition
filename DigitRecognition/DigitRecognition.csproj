@@ -63,6 +63,7 @@
     <Compile Include="AttachedProperties\FrameHistoryProperty.cs" />
     <Compile Include="AttachedProperties\InkCanvasProperty.cs" />
     <Compile Include="AttachedProperties\StackPanelProperty.cs" />
+    <Compile Include="AttachedProperties\TextBoxNetworkProperty.cs" />
     <Compile Include="Controls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
