@@ -77,11 +77,24 @@
                                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
 
+                                        <!--Icon-->
                                         <Button
                                             Grid.Column="0">
                                         </Button>
-                                        
-                                        
+                                        <!--Title-->
+                                        <Label
+                                            Grid.Column="1">
+                                        </Label>
+                                        <!--Minimalize/Close Button-->
+                                        <DockPanel
+                                            Grid.Column="2">
+                                            <Button 
+                                                Content="Minimalize"
+                                                Command="{Binding Minimalize}"></Button>
+                                            <Button 
+                                                Content="Close"
+                                                Command="{Binding CloseProgram}"></Button>
+                                        </DockPanel>
                                     </Grid>
                                     
                                 </Grid>
