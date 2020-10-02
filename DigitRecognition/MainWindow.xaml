@@ -11,35 +11,10 @@
         WindowStyle="None"
         Title="{Binding WindowTitle, FallbackValue = Test}" 
         ResizeMode="NoResize"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
         Height="450" 
         Width="800">
-    <!--
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <StackPanel
-            Orientation="Horizontal"
-            Height="30"
-            Grid.Row="0">
-            <Button 
-                Command="{Binding ChangePage}"
-                CommandParameter="0"
-                Content="1"></Button>
-            <Button 
-                Command="{Binding ChangePage}"
-                CommandParameter="1"
-                Content="2"></Button>
-        </StackPanel>
-
-        <ctrl:PageHost
-            Grid.Row="1"
-            CurrentPage="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}}"
-            CurrentPageViewModel="{Binding ApplicationViewModel.CurrentPageViewModel, Source={x:Static local:ViewModelLocator.Instance}}">
-        </ctrl:PageHost>
-    </Grid>
-    -->
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
@@ -49,9 +24,9 @@
                         <Border
                             Padding="6">
                             <Grid>
-                                
+
                                 <Border 
-                                    Background="Green">
+                                    Background="{StaticResource LighterDarkBrush}">
                                     <Border.Effect>
                                         <DropShadowEffect
                                             ShadowDepth="0"
@@ -61,14 +36,16 @@
                                 </Border>
                                 
                                 <Grid>
-                                    
+
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="42"></RowDefinition>
-                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
                                         <RowDefinition Height="*"></RowDefinition>
                                     </Grid.RowDefinitions>
 
                                     <Grid
+                                        Background="Black"
+                                        Panel.ZIndex="1"
                                         Grid.Row="0">
 
                                         <Grid.ColumnDefinitions>
@@ -79,24 +56,58 @@
 
                                         <!--Icon-->
                                         <Button
+                                            Style="{StaticResource IconButton}"
                                             Grid.Column="0">
                                         </Button>
                                         <!--Title-->
-                                        <Label
+                                        <Viewbox
                                             Grid.Column="1">
-                                        </Label>
+                                        </Viewbox>
                                         <!--Minimalize/Close Button-->
-                                        <DockPanel
+                                        <StackPanel
+                                            Orientation="Horizontal"
                                             Grid.Column="2">
                                             <Button 
-                                                Content="Minimalize"
+                                                Content="_"
+                                                Style="{StaticResource TitleBarBase}"
                                                 Command="{Binding Minimalize}"></Button>
                                             <Button 
-                                                Content="Close"
+                                                Content="X"
+                                                Style="{StaticResource CloseButton}"
                                                 Command="{Binding CloseProgram}"></Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid
+                                        Height="30"
+                                        Background="Black"
+                                        VerticalAlignment="Top"
+                                        Grid.Row="1">
+                                        <DockPanel HorizontalAlignment="Left">
+                                            <Button 
+                                                Content="Recognition"
+                                                prop:IsSiteProperty.IsSiteChoosen="{Binding RecognitionPageBool}"
+                                                Command="{Binding ChangePage}"
+                                                CommandParameter="0"
+                                                Style="{StaticResource ChangeSiteButton}"></Button>
+                                            <Button 
+                                                Content="Learing"
+                                                prop:IsSiteProperty.IsSiteChoosen="{Binding LearningPageBool}"
+                                                Command="{Binding ChangePage}"
+                                                CommandParameter="1"
+                                                Style="{StaticResource ChangeSiteButton}"></Button>
                                         </DockPanel>
                                     </Grid>
-                                    
+
+                                    <Grid
+                                        Grid.Row="2"
+                                        ClipToBounds="True">
+                                        <ContentPresenter
+                                            Content="{TemplateBinding Content}">
+                                            
+                                        </ContentPresenter>
+                                    </Grid>
+
                                 </Grid>
                             </Grid>
                         </Border>
@@ -105,5 +116,22 @@
             </Setter>
         </Style>
     </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="6"
+            CaptionHeight="42"
+            GlassFrameThickness="0"
+            CornerRadius="0"
+            ></WindowChrome>
+    </WindowChrome.WindowChrome>
+    
+    
+    <Grid>
+        <ctrl:PageHost
+            CurrentPage="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}}"
+            CurrentPageViewModel="{Binding ApplicationViewModel.CurrentPageViewModel, Source={x:Static local:ViewModelLocator.Instance}}">
+        </ctrl:PageHost>
+    </Grid>
     
 </Window>

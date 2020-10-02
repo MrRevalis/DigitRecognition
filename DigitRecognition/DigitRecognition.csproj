@@ -64,6 +64,7 @@
     <Compile Include="AttachedProperties\InkCanvasProperty.cs" />
     <Compile Include="AttachedProperties\StackPanelProperty.cs" />
     <Compile Include="AttachedProperties\TextBoxNetworkProperty.cs" />
+    <Compile Include="AttachedProperties\IsSiteProperty.cs" />
     <Compile Include="Controls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
@@ -121,6 +122,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\RecognitionResultStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +171,9 @@
       <Project>{4f8dee77-65ef-44da-9658-41074928086f}</Project>
       <Name>DigitRecognition.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

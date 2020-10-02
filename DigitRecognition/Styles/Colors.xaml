@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="TitleBar">#121212</Color>
+    <SolidColorBrush x:Key="TitleBarBrush" Color="{StaticResource TitleBar}"></SolidColorBrush>
+
+    <Color x:Key="TextColor">#aaaaaa</Color>
+    <SolidColorBrush x:Key="TextColorBrush" Color="{StaticResource TextColor}"></SolidColorBrush>
+
+    <Color x:Key="ButtonHover">#c8c8c8</Color>
+    <SolidColorBrush x:Key="ButtonHoverBrush" Color="{StaticResource ButtonHover}" Opacity="0.1"></SolidColorBrush>
+
+    <Color x:Key="ButtonLine">#d10028</Color>
+    <SolidColorBrush x:Key="ButtonLineBrush" Color="{StaticResource ButtonLine}"></SolidColorBrush>
+
+    <Color x:Key="LighterDark">#232323</Color>
+    <SolidColorBrush x:Key="LighterDarkBrush" Color="{StaticResource LighterDark}"></SolidColorBrush>
+
+    <Color x:Key="SecondHoverColor">#ffffff</Color>
+    <SolidColorBrush x:Key="SecondHoverColorBrush" Color="{StaticResource SecondHoverColor}" Opacity="0.15"></SolidColorBrush>
+
+</ResourceDictionary>

@@ -83,3 +83,5 @@ C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\pl-PL\
 C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\DigitRecognition.csproj.CopyComplete
 C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\DigitRecognition.exe
 C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\DigitRecognition.pdb
+C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\Styles\Button.baml
+C:\Users\Dominik\source\repos\DigitRecognition\DigitRecognition\obj\Debug\Styles\Colors.baml

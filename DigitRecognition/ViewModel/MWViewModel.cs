@@ -15,6 +15,8 @@ namespace DigitRecognition.ViewModel
 
         #region Public Properties
         public string WindowTitle { get { return windowTitle; } }
+        public bool LearningPageBool { get; set; }
+        public bool RecognitionPageBool { get; set; }
         public ICommand ChangePage { get; set; }
         public ICommand Minimalize { get; set; }
         public ICommand CloseProgram { get; set; }
@@ -27,6 +29,9 @@ namespace DigitRecognition.ViewModel
 
             Minimalize = new RelayCommand(() => window.WindowState = WindowState.Minimized);
             CloseProgram = new RelayCommand(() => window.Close());
+
+            LearningPageBool = false;
+            RecognitionPageBool = true;
         }
 
         private async Task Change(object param)
@@ -34,11 +39,26 @@ namespace DigitRecognition.ViewModel
             if (int.TryParse(param.ToString(), out int page))
             {
                 if (page == 0)
+                {
                     IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.RecognitionPage);
+                    LearningPageBool = false;
+                    RecognitionPageBool = true;
+                }
                 else
+                {
                     IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.LearningPage);
+                    LearningPageBool = true;
+                    RecognitionPageBool = false;
+                }
+                RefreshData();
             }
             await Task.Delay(1);
+        }
+
+        private void RefreshData()
+        {
+            OnPropertyChanged(nameof(LearningPageBool));
+            OnPropertyChanged(nameof(RecognitionPageBool));
         }
     }
 }
