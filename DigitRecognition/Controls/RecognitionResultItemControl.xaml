@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:DigitRecognition.Controls"
              xmlns:core="clr-namespace:DigitRecognition.Core;assembly=DigitRecognition.Core"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid d:DataContext="{x:Static core:RecognitionModel.Instance}">
+             d:DesignHeight="50" d:DesignWidth="800">
+    <Grid
+        d:DataContext="{x:Static core:RecognitionModel.Instance}">
         <Border
             Style="{StaticResource BorderStyle}">
             <StackPanel
@@ -24,9 +25,10 @@
                     Style="{StaticResource PosibilityNumber}"
                     Content="{Binding NumberPosibility}">
                 </Label>
-                <Label 
+                <!--<Label 
+                    Style="{StaticResource PercentStyle}"
                     Content="%">
-                </Label>
+                </Label>-->
             </StackPanel>
         </Border>
     </Grid>

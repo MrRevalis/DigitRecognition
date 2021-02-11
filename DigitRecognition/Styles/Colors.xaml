@@ -19,4 +19,21 @@
     <Color x:Key="SecondHoverColor">#ffffff</Color>
     <SolidColorBrush x:Key="SecondHoverColorBrush" Color="{StaticResource SecondHoverColor}" Opacity="0.15"></SolidColorBrush>
 
+    
+    
+    <Color x:Key="Cyclamen">#F2709C</Color>
+    <SolidColorBrush x:Key="CyclamenColorBrush" Color="{StaticResource Cyclamen}"></SolidColorBrush>
+
+    <Color x:Key="LightSalmon">#FF9472</Color>
+    <SolidColorBrush x:Key="LightSalmonColorBrush" Color="{StaticResource LightSalmon}"></SolidColorBrush>
+
+    <Color x:Key="GoldenrodYellow">#F1F0CC</Color>
+    <SolidColorBrush x:Key="GoldenrodYellowColorBrush" Color="{StaticResource GoldenrodYellow}"></SolidColorBrush>
+
+    <Color x:Key="Independence">#3A405A</Color>
+    <SolidColorBrush x:Key="IndependenceColorBrush" Color="{StaticResource Independence}"></SolidColorBrush>
+
+    <Color x:Key="WildBlue">#99B2DD</Color>
+    <SolidColorBrush x:Key="WildBlueColorBrush" Color="{StaticResource WildBlue}"></SolidColorBrush>
+
 </ResourceDictionary>

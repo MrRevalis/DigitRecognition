@@ -24,9 +24,13 @@
                         <Border
                             Padding="6">
                             <Grid>
-
-                                <Border 
-                                    Background="{StaticResource LighterDarkBrush}">
+                                <Border>
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="{StaticResource Cyclamen}"/>
+                                            <GradientStop Color="{StaticResource LightSalmon}" Offset="0.75"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
                                     <Border.Effect>
                                         <DropShadowEffect
                                             ShadowDepth="0"
@@ -39,7 +43,7 @@
 
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="42"></RowDefinition>
-                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="50"></RowDefinition>
                                         <RowDefinition Height="*"></RowDefinition>
                                     </Grid.RowDefinitions>
 
@@ -62,6 +66,10 @@
                                         <!--Title-->
                                         <Viewbox
                                             Grid.Column="1">
+                                            <TextBlock
+                                                Text="{Binding WindowTitle}" 
+                                                Foreground="White" 
+                                                HorizontalAlignment="Center"></TextBlock>
                                         </Viewbox>
                                         <!--Minimalize/Close Button-->
                                         <StackPanel
@@ -79,8 +87,6 @@
                                     </Grid>
 
                                     <Grid
-                                        Height="30"
-                                        Background="Black"
                                         VerticalAlignment="Top"
                                         Grid.Row="1">
                                         <DockPanel HorizontalAlignment="Left">
@@ -91,7 +97,7 @@
                                                 CommandParameter="0"
                                                 Style="{StaticResource ChangeSiteButton}"></Button>
                                             <Button 
-                                                Content="Learing"
+                                                Content="Learning"
                                                 prop:IsSiteProperty.IsSiteChoosen="{Binding LearningPageBool}"
                                                 Command="{Binding ChangePage}"
                                                 CommandParameter="1"
@@ -104,7 +110,6 @@
                                         ClipToBounds="True">
                                         <ContentPresenter
                                             Content="{TemplateBinding Content}">
-                                            
                                         </ContentPresenter>
                                     </Grid>
 

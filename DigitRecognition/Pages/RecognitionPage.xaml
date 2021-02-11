@@ -22,10 +22,12 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel
+            Margin="10"
             Grid.Row="0"
             Grid.Column="0">
             
             <Label
+                HorizontalAlignment="Center"
                 Content="Draw number">
             </Label>
             
@@ -40,12 +42,14 @@
             <Button
                 Content="Clear"
                 Command="{Binding ClearCanvas}"
-                CommandParameter="{Binding ElementName=Paint}">
+                CommandParameter="{Binding ElementName=Paint}"
+                Style="{StaticResource LearningButtons}">
             </Button>
             
         </StackPanel>
 
         <StackPanel
+            Margin="10"
             Grid.Column="1">
             <ctrl:RecognitionResultControl></ctrl:RecognitionResultControl>
         </StackPanel>
