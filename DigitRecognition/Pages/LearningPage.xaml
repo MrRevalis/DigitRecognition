@@ -47,8 +47,15 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <Button Content="Load files to learning" Command="{Binding LoadLearningSource}" Style="{StaticResource LearningButtons}"></Button>
-            <Button Content="Start learning" Command="{Binding NetworkLearning}" Style="{StaticResource LearningButtons}"></Button>
+            <Button 
+                prop:ActionRunning.ActionIsRunning="{Binding LoadingData}"
+                Content="Load files to learning" 
+                Command="{Binding LoadLearningSource}" 
+                Style="{StaticResource LearningButtons}"></Button>
+            <Button 
+                prop:ActionRunning.ActionIsRunning="{Binding IsRunning}"
+                Content="Start learning" Command="{Binding NetworkLearning}" 
+                Style="{StaticResource LearningButtons}"></Button>
             <Button Content="Stop learning" Command="{Binding StopLearning}" Style="{StaticResource LearningButtons}"></Button>
             <Button Content="Load network" Command="{Binding LoadNetworkSource}" Style="{StaticResource LearningButtons}"></Button>
         </StackPanel>

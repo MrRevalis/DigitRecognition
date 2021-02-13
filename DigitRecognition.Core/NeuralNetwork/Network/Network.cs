@@ -115,12 +115,12 @@ namespace DigitRecognition.Core
 
                 if (cancellationToken.IsCancellationRequested)
                 {
+                    ExportNetwork.Export(this);
                     break;
                 }
             }
             double error = listOfErrors.Average();
 
-            ExportNetwork.Export(this);
             return $"Blad => {error}";
         }
 

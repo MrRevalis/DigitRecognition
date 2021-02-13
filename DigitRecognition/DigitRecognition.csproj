@@ -62,6 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttachedProperties\ActionRunning.cs" />
     <Compile Include="AttachedProperties\AutoScrollProperty.cs" />
     <Compile Include="AttachedProperties\FrameHistoryProperty.cs" />
     <Compile Include="AttachedProperties\InkCanvasProperty.cs" />
@@ -79,6 +80,7 @@
     </Compile>
     <Compile Include="Converters\ApplicationPageConverter.cs" />
     <Compile Include="Converters\ApplicationPageHelpers.cs" />
+    <Compile Include="Converters\BooleanToVisibility.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\LearningPage.xaml.cs">
       <DependentUpon>LearningPage.xaml</DependentUpon>
@@ -133,6 +135,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\Fonts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\RecognitionResultStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,6 +170,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\FontAwesome.otf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

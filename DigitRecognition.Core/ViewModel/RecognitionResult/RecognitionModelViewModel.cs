@@ -10,7 +10,7 @@ namespace DigitRecognition.Core
 {
     public class RecognitionModelViewModel : ViewModelBase
     {
-        public int Number { get; set; }
-        public double NumberPosibility { get; set; }
+        public string Number { get; set; }
+        public string NumberPosibility { get; set; }
     }
 }

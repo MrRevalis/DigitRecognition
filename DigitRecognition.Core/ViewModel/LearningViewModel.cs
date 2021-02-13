@@ -23,12 +23,13 @@ namespace DigitRecognition.Core
         public ICommand LoadLearningSource { get; set; }
         public ICommand LoadNetworkSource { get; set; }
         public ICommand CreateNewNetwork { get; set; }
-        public ICommand ExportNetwork { get; set; }
+        //public ICommand ExportNetwork { get; set; }
         public CancellationToken Token { get; set; }
         public CancellationTokenSource TokenSource { get; set; }
         public string LearningProgress { get; set; } = "";
         public string NetworkLayers { get; set; }
         public bool IsRunning { get; set; } = false;
+        public bool LoadingData { get; set; } = false;
         public List<DataSet> LearningData { get; set; }
         #endregion
 
@@ -39,10 +40,9 @@ namespace DigitRecognition.Core
             {
                 if(LearningData != null)
                 {
-                    if (IsRunning == false)
+                    if (!IsRunning && !LoadingData)
                     {
                         IsRunning = true;
-                        Console.WriteLine("START");
                         TokenSource = new CancellationTokenSource();
                         Token = TokenSource.Token;
                         await Task.Run(() => StartLearning(Token));
@@ -60,9 +60,12 @@ namespace DigitRecognition.Core
                 }
             });
 
-            LoadLearningSource = new RelayCommand(() => LoadMaterial());
             LoadNetworkSource = new RelayCommand(() => LoadNetwork());
             CreateNewNetwork = new RelayCommand(() => NewNetwork());
+
+            LoadLearningSource = new RelayCommand(async() => {
+                await Task.Run(() => LoadMaterial());
+                });
 
         }
         #endregion
@@ -92,6 +95,7 @@ namespace DigitRecognition.Core
 
         private void LoadMaterial()
         {
+            LoadingData = true;
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
             openFileDialog.Multiselect = true;
@@ -105,8 +109,8 @@ namespace DigitRecognition.Core
                 {
                     LearningData.Add(new DataSet(x));
                 }
-                MessageBox.Show("Wczytano Dane");
             }
+            LoadingData = false;
         }
 
         //Do zrobienia

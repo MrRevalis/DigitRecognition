@@ -10,7 +10,7 @@ namespace DigitRecognition.Core
         public static void Export(Network network)
         {
             var data = CreateExportNetwork(network);
-            using (var file = File.CreateText("new.json"))
+            using (var file = File.CreateText("newNetwork.json"))
             {
                 var serialize = new JsonSerializer { Formatting = Formatting.Indented };
                 serialize.Serialize(file, data);

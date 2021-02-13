@@ -15,8 +15,8 @@ namespace DigitRecognition.Core
             for (int i = 0; i < 10; i++)
             {
                 var x = new RecognitionModelViewModel();
-                x.Number = i;
-                x.NumberPosibility = 0;
+                x.Number = $"Number {i}";
+                x.NumberPosibility = $"{0}%";
 
                 RecognitionModelCollection.Add(x);
             }
@@ -24,17 +24,17 @@ namespace DigitRecognition.Core
 
         public void ChangePosibilities(double[] data)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < data.Length; i++)
             {
-                RecognitionModelCollection[i].NumberPosibility = Math.Round(data[i] * 100, 2);
+                RecognitionModelCollection[i].NumberPosibility = $"{Math.Round(data[i] * 100, 2)}%";
             }
         }
 
         public void ClearPosibilities()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < RecognitionModelCollection.Count; i++)
             {
-                RecognitionModelCollection[i].NumberPosibility = 0;
+                RecognitionModelCollection[i].NumberPosibility = $"{0}%";
             }
         }
     }
