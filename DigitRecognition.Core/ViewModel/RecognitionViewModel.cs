@@ -4,6 +4,8 @@ using System.IO;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
+using System.Drawing.Imaging;
+using System;
 
 namespace DigitRecognition.Core
 {
@@ -51,7 +53,7 @@ namespace DigitRecognition.Core
             bitmapEncoder.Save(memoryStream);
 
             Bitmap bitmap = new Bitmap(memoryStream);
-
+            //bitmap.Save($"newfile_{DateTime.Now.Millisecond}.bmp", ImageFormat.Bmp);
             DataSet dataSet = new DataSet(bitmap);
 
             var results = IoC.Get<Network>().Calculate(dataSet.Brightness);

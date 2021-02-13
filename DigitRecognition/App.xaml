@@ -8,6 +8,7 @@
                 <ResourceDictionary Source="Styles/Colors.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Styles/RecognitionResultStyle.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Styles/Button.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Styles/Text.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

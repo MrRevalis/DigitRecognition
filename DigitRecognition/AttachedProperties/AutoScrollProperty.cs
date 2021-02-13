@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace DigitRecognition.AttachedProperties
 {
@@ -29,6 +30,9 @@ namespace DigitRecognition.AttachedProperties
                       return;
                   textBox.ScrollToEnd();
               };
+
+            textBox.Focusable = false;
+            textBox.Cursor = Cursors.Arrow;
         }
     }
 }

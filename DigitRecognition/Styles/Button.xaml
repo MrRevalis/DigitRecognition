@@ -83,7 +83,8 @@
                         Padding="10"
                         Width="130">
                         <StackPanel>
-                            <TextBlock 
+                            <TextBlock
+                                Name="buttonText"
                                 Foreground="{StaticResource TitleBarBrush}"
                                 FontSize="16px"
                                 HorizontalAlignment="Center"
@@ -93,11 +94,12 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="buttonBorder" Property="Background" Value="#99B2DD"></Setter>
+                            <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource LightYellowColorBrush}"></Setter>
                         </Trigger>
 
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(prop:IsSiteProperty.IsSiteChoosen)}" Value="true">
-                            <Setter TargetName="buttonBorder" Property="Background" Value="#91C4F2"></Setter>
+                            <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource RufousColorBrush}"></Setter>
+                            <Setter TargetName="buttonText" Property="Foreground" Value="White"></Setter>
                         </DataTrigger>
 
                     </ControlTemplate.Triggers>
@@ -107,9 +109,36 @@
     </Style>
 
     <Style x:Key="LearningButtons" TargetType="{x:Type Button}">
-        <Setter Property="Width" Value="200"></Setter>
-        <Setter Property="Margin" Value="10px"></Setter>
-        <Setter Property="Padding" Value="5"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border
+                        Name="borderArea"
+                        Width="200"
+                        Padding="10"
+                        CornerRadius="5"
+                        Margin="5"
+                        Background="{StaticResource GoldenrodYellowColorBrush}">
+                        <TextBlock
+                            FontSize="16px"
+                            HorizontalAlignment="Center"
+                            Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content}">
+                        </TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="borderArea" Property="Background" Value="{StaticResource RufousColorBrush}"></Setter>
+                            <Setter Property="Foreground" Value="White"></Setter>
+                        </Trigger>
+
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter TargetName="borderArea" Property="Background" Value="{StaticResource LightYellowColorBrush}"></Setter>
+                            <Setter Property="Foreground" Value="Black"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
     
 </ResourceDictionary>

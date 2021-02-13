@@ -36,4 +36,12 @@
     <Color x:Key="WildBlue">#99B2DD</Color>
     <SolidColorBrush x:Key="WildBlueColorBrush" Color="{StaticResource WildBlue}"></SolidColorBrush>
 
+    <Color x:Key="Xiketic">#020122</Color>
+    <SolidColorBrush x:Key="XiketicColorBrush" Color="{StaticResource Xiketic}"></SolidColorBrush>
+
+    <Color x:Key="Rufous">#9B2915</Color>
+    <SolidColorBrush x:Key="RufousColorBrush" Color="{StaticResource Rufous}"></SolidColorBrush>
+
+    <Color x:Key="LightYellow">#FFDDAF</Color>
+    <SolidColorBrush x:Key="LightYellowColorBrush" Color="{StaticResource LightYellow}"></SolidColorBrush>
 </ResourceDictionary>

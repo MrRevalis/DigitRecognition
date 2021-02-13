@@ -16,12 +16,14 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Margin="10">
+        <StackPanel Margin="5 1 5 1">
+            <Label
+                Content="Progress of network learning"></Label>
             <TextBox 
                 Text="{Binding LearningProgress}" 
                 prop:AutoScrollProperty.AutoScrollSettings="True"
-                MaxHeight="100"
-                Height="100"
+                MaxHeight="150"
+                Height="150"
                 ScrollViewer.CanContentScroll="True"
                 ScrollViewer.VerticalScrollBarVisibility="Auto">
             </TextBox>
@@ -29,28 +31,26 @@
             <Border>
                 <StackPanel>
                     <Label 
-                        HorizontalAlignment="Center"
-                        Content="Create new nerual network" 
-                        Margin="0 50 0 5"></Label>
+                        Content="Enter the following neurons for the layer" 
+                        Margin="0 5 0 5"></Label>
                     <TextBox
                         Padding="5"
                         prop:TextBoxNetworkProperty.TextBoxDigits="True"
                         Text="{Binding NetworkLayers}">
                     </TextBox>
                     <Label 
-                        HorizontalAlignment="Center"
-                        Margin="0 10 0 0"
-                        Content="wpisz kolejne wartswy z iloscia neuironow"></Label>
+                        Margin="0 5 0 0"
+                        Content="Create new neural network"></Label>
                     <Button Content="Create Network" Command="{Binding CreateNewNetwork}" Style="{StaticResource LearningButtons}"></Button>
                 </StackPanel>
             </Border>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <Button Content="Load Files to learning" Command="{Binding LoadLearningSource}" Style="{StaticResource LearningButtons}"></Button>
+            <Button Content="Load files to learning" Command="{Binding LoadLearningSource}" Style="{StaticResource LearningButtons}"></Button>
             <Button Content="Start learning" Command="{Binding NetworkLearning}" Style="{StaticResource LearningButtons}"></Button>
             <Button Content="Stop learning" Command="{Binding StopLearning}" Style="{StaticResource LearningButtons}"></Button>
-            <Button Content="load network" Command="{Binding LoadNetworkSource}" Style="{StaticResource LearningButtons}"></Button>
+            <Button Content="Load network" Command="{Binding LoadNetworkSource}" Style="{StaticResource LearningButtons}"></Button>
         </StackPanel>
         
     </Grid>

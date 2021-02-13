@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace DigitRecognition.Core
 {
@@ -9,69 +11,71 @@ namespace DigitRecognition.Core
         public double[] Brightness { get; set; }
         public double[] Name { get; set; }
 
-        public int Width { get; } = 28;
-        public int Height { get; } = 28;
-
-        public DataSet(string path)
+        public DataSet(FileInfo file)
         {
-            if (int.TryParse(Path.GetFileNameWithoutExtension(path)[0].ToString(), out int index))
-            {
-                Name = new double[10];
-                Name.SetValue(1, index);
-
-                try
-                {
-                    Bitmap bitmap = new Bitmap(path);
-                    if (bitmap.Size != new Size(Width, Height))
-                    {
-                        bitmap = bitmap.Resize(Width, Height);
-                    }
-
-                    Brightness = BitmapToArray(bitmap);
-                }
-                catch (Exception e)
-                {
-                    throw new Exception($"Error with file {path} => {e.Message}");
-                }
-            }
-            else
-                return;
-        }
-
-        public DataSet(Bitmap bitmap)
-        {
-            Name = new double[10];
-
             try
             {
-                if (bitmap.Size != new Size(Width, Height))
+                //Get Colors
+                Bitmap image = (Bitmap)Image.FromFile(file.FullName);
+                if (image.Width != 28 && image.Height != 28)
                 {
-                    bitmap = bitmap.Resize(Width, Height);
+                    image = new Bitmap(image, new Size(28, 28));
                 }
 
-                Brightness = BitmapToArray(bitmap);
+                int width = image.Width;
+                int height = image.Height;
+                double[] colorArray = new double[width * height];
+
+                Rectangle rectangle = new Rectangle(0, 0, width, height);
+                BitmapData bmpData = image.LockBits(rectangle, ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                int[] dataArray = new int[width * height - 1];
+                Marshal.Copy(bmpData.Scan0, dataArray, 0, dataArray.Length);
+                image.UnlockBits(bmpData);
+
+                for (int i = 0; i < dataArray.Length; i++)
+                {
+                    colorArray[i] = Color.FromArgb(dataArray[i]).GetBrightness();
+                }
+                Brightness = colorArray;
+                //image.Save($"newfile_{DateTime.Now.Millisecond}.bmp", ImageFormat.Bmp);
+                image.Dispose();
+                //Get name value
+                double[] nameArray = new double[10];
+                string fileName = file.Name.Replace(file.Extension, " ");
+                if (int.TryParse(fileName[0].ToString(), out int number))
+                {
+                    nameArray[number] = 1;
+                }
+                Name = nameArray;
             }
             catch (Exception e)
             {
-                throw new Exception($"Error with created Bitmap => {e.Message}");
+                Console.WriteLine($"Error => {e.Message}");
             }
         }
 
-        private double[] BitmapToArray(Bitmap bitmap)
+        public DataSet(Bitmap image)
         {
-            double[] brightnessArray = new double[Width * Height];
-
-            int indexArray = 0;
-            for (int x = 0; x < Height; x++)
+            if (image.Width != 28 && image.Height != 28)
             {
-                for (int y = 0; y < Width; y++)
-                {
-                    brightnessArray.SetValue(bitmap.GetPixel(x, y).GetBrightness(), indexArray);
-                    indexArray++;
-                }
+                image = new Bitmap(image, new Size(28, 28));
             }
 
-            return brightnessArray;
+            int width = image.Width;
+            int height = image.Height;
+            double[] colorArray = new double[width * height];
+
+            Rectangle rectangle = new Rectangle(0, 0, width, height);
+            BitmapData bmpData = image.LockBits(rectangle, ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+            int[] dataArray = new int[width * height - 1];
+            Marshal.Copy(bmpData.Scan0, dataArray, 0, dataArray.Length);
+            image.UnlockBits(bmpData);
+
+            for (int i = 0; i < dataArray.Length; i++)
+            {
+                colorArray[i] = Color.FromArgb(dataArray[i]).GetBrightness();
+            }
+            Brightness = colorArray;
         }
     }
 }

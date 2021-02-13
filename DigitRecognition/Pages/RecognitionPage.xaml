@@ -22,12 +22,11 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel
-            Margin="10"
+            Margin="5 1 5 1"
             Grid.Row="0"
             Grid.Column="0">
             
             <Label
-                HorizontalAlignment="Center"
                 Content="Draw number">
             </Label>
             
@@ -49,7 +48,7 @@
         </StackPanel>
 
         <StackPanel
-            Margin="10"
+            Margin="5 1 5 1"
             Grid.Column="1">
             <ctrl:RecognitionResultControl></ctrl:RecognitionResultControl>
         </StackPanel>

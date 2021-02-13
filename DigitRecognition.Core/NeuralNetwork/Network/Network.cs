@@ -17,7 +17,7 @@ namespace DigitRecognition.Core
         public string LayerDescription { get; set; }
         public Network()
         {
-            if (File.Exists(DefaultNetworkPath))
+            /*if (File.Exists(DefaultNetworkPath))
             {
                 Network defaultNetwork = ImportNetwork.NetworkImport(DefaultNetworkPath);
 
@@ -34,13 +34,13 @@ namespace DigitRecognition.Core
                 LayerDescription = LayerDescription.Remove(LayerDescription.Length - 1);
             }
             else
-            {
+            {*/
                 LearningRate = 0;
                 Momentum = 0;
                 EntryLayer = new Layer();
                 HiddenLayers = new List<Layer>();
                 ExitLayer = new Layer();
-            }
+            //}
         }
 
         public Network(bool temp)
@@ -124,21 +124,21 @@ namespace DigitRecognition.Core
             return $"Blad => {error}";
         }
 
-        private void ForwardPropagation(params double[] wejscie)
+        private void ForwardPropagation(params double[] entryValue)
         {
             var i = 0;
             for (int j = 0; j < EntryLayer.Neurons.Count; j++)
             {
-                EntryLayer.Neurons[i].Value = wejscie[i++];
+                EntryLayer.Neurons[i].Value = entryValue[i++];
             }
             HiddenLayers.ForEach(x => x.Neurons.ForEach(y => y.CalculateEntry()));
             ExitLayer.Neurons.ForEach(x => x.CalculateEntry());
         }
 
-        private void BackPropagation(params double[] cel)
+        private void BackPropagation(params double[] goal)
         {
             var i = 0;
-            ExitLayer.Neurons.ForEach(x => x.CalculateGradient(cel[i++]));
+            ExitLayer.Neurons.ForEach(x => x.CalculateGradient(goal[i++]));
             HiddenLayers.Reverse();
             HiddenLayers.ForEach(x => x.Neurons.ForEach(y => y.CalculateGradient()));
             HiddenLayers.ForEach(x => x.Neurons.ForEach(y => y.UpdateWeight(LearningRate, Momentum)));

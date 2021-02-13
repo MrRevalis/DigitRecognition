@@ -6,6 +6,8 @@ using Microsoft.Win32;
 using System.Windows;
 using System.Windows.Documents;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace DigitRecognition.Core
 {
@@ -96,24 +98,18 @@ namespace DigitRecognition.Core
 
             if(openFileDialog.ShowDialog() == true)
             {
+                FileInfo[] files = openFileDialog.FileNames.Select(y => new FileInfo(y)).ToArray();
                 LearningData = new List<DataSet>();
-                foreach (var x in openFileDialog.FileNames)
+
+                foreach(var x in files)
                 {
-                    try
-                    {
-                        DataSet newData = new DataSet(x);
-                        if(newData != null)
-                            LearningData.Add(newData);
-                    }
-                    catch(Exception e)
-                    {
-                        MessageBox.Show($"ERROR => {e.Message} => {x}");
-                    }
+                    LearningData.Add(new DataSet(x));
                 }
                 MessageBox.Show("Wczytano Dane");
             }
         }
 
+        //Do zrobienia
         private void LoadNetwork()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
