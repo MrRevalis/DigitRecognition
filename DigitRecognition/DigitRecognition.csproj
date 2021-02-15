@@ -81,6 +81,7 @@
     <Compile Include="Converters\ApplicationPageConverter.cs" />
     <Compile Include="Converters\ApplicationPageHelpers.cs" />
     <Compile Include="Converters\BooleanToVisibility.cs" />
+    <Compile Include="Converters\StringToProgressBarValue.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\LearningPage.xaml.cs">
       <DependentUpon>LearningPage.xaml</DependentUpon>

@@ -38,6 +38,8 @@ namespace DigitRecognition.Core
         #region Methods
         private void Recognize(object _object)
         {
+            if (!IoC.Get<LearningViewModel>().IsRunning)
+            {
             InkCanvas inkCanvas = _object as InkCanvas;
             int width = (int)inkCanvas.ActualWidth;
             int height = (int)inkCanvas.ActualHeight;
@@ -59,6 +61,7 @@ namespace DigitRecognition.Core
             var results = IoC.Get<Network>().Calculate(dataSet.Brightness);
 
             RecognitionModel.Instance.ChangePosibilities(results);
+            }
         }
         #endregion
     }

@@ -13,11 +13,11 @@ namespace DigitRecognition.Core
         public Layer EntryLayer { get; set; }
         public List<Layer> HiddenLayers { get; set; }
         public Layer ExitLayer { get; set; }
-        public string DefaultNetworkPath { get; } = @"..\..\..\DefaultNetwork\defaultNetwork.json";
+        private string DefaultNetworkPath { get; } = @"..\..\..\DefaultNetwork\defaultNetwork.json";
         public string LayerDescription { get; set; }
         public Network()
         {
-            /*if (File.Exists(DefaultNetworkPath))
+            if (File.Exists(DefaultNetworkPath))
             {
                 Network defaultNetwork = ImportNetwork.NetworkImport(DefaultNetworkPath);
 
@@ -34,22 +34,37 @@ namespace DigitRecognition.Core
                 LayerDescription = LayerDescription.Remove(LayerDescription.Length - 1);
             }
             else
-            {*/
-                LearningRate = 0;
-                Momentum = 0;
+            {
+                LearningRate = 0.05;
+                Momentum = 0.1;
                 EntryLayer = new Layer();
                 HiddenLayers = new List<Layer>();
                 ExitLayer = new Layer();
-            //}
+            }
         }
 
         public Network(bool temp)
         {
-            LearningRate = 0;
-            Momentum = 0;
+            LearningRate = 0.05;
+            Momentum = 0.1;
             EntryLayer = new Layer();
             HiddenLayers = new List<Layer>();
             ExitLayer = new Layer();
+        }
+
+        public void LoadNetwork(Network network)
+        {
+            LearningRate = network.LearningRate;
+            Momentum = network.Momentum;
+            EntryLayer = network.EntryLayer;
+            HiddenLayers = network.HiddenLayers;
+            ExitLayer = network.ExitLayer;
+
+            foreach (var x in HiddenLayers)
+            {
+                LayerDescription += x.Neurons.Count + ",";
+            }
+            LayerDescription = LayerDescription.Remove(LayerDescription.Length - 1);
         }
 
         public void ChangeNetworkSettings(string neuronsNumber)
@@ -105,7 +120,7 @@ namespace DigitRecognition.Core
         {
             List<double> listOfErrors = new List<double>();
 
-            Shuffle(dataSet);
+            dataSet.ShuffleData();
 
             foreach(var x in dataSet)
             {
@@ -121,7 +136,7 @@ namespace DigitRecognition.Core
             }
             double error = listOfErrors.Average();
 
-            return $"Blad => {error}";
+            return $"Error => {error}";
         }
 
         private void ForwardPropagation(params double[] entryValue)
@@ -156,19 +171,6 @@ namespace DigitRecognition.Core
         {
             var i = 0;
             return ExitLayer.Neurons.Sum(x => Math.Abs(x.CalculateError(goal[i++])));
-        }
-
-        public static void Shuffle<T>(IList<T> list)
-        {
-            int n = list.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = RandomClass.RandomWeight(n + 1);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
-            }
         }
     }
 }

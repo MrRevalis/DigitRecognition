@@ -56,11 +56,10 @@ namespace DigitRecognition.Core
                 {
                     TokenSource.Cancel();
                     IsRunning = false;
-                    Console.WriteLine("STOP");
                 }
             });
 
-            LoadNetworkSource = new RelayCommand(() => LoadNetwork());
+            LoadNetworkSource = new RelayCommand(async () => await Task.Run(() => LoadNetwork()));
             CreateNewNetwork = new RelayCommand(() => NewNetwork());
 
             LoadLearningSource = new RelayCommand(async() => {
@@ -79,7 +78,7 @@ namespace DigitRecognition.Core
                 if (cancellationToken.IsCancellationRequested)
                     return;
 
-                string message = $"Proba {epoch} " +IoC.Get<Network>().Learn(LearningData, cancellationToken);
+                string message = $"Sample {epoch} " +IoC.Get<Network>().Learn(LearningData, cancellationToken);
 
 
                 if(LearningProgress.Length >= 1)
@@ -113,7 +112,7 @@ namespace DigitRecognition.Core
             LoadingData = false;
         }
 
-        //Do zrobienia
+
         private void LoadNetwork()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -122,6 +121,8 @@ namespace DigitRecognition.Core
             if (openFileDialog.ShowDialog() == true)
             {
                 string fileName = openFileDialog.FileName;
+                Network network = ImportNetwork.NetworkImport(fileName);
+                IoC.Get<Network>().LoadNetwork(network);
             }
         }
         #endregion

@@ -57,7 +57,10 @@
                 Content="Start learning" Command="{Binding NetworkLearning}" 
                 Style="{StaticResource LearningButtons}"></Button>
             <Button Content="Stop learning" Command="{Binding StopLearning}" Style="{StaticResource LearningButtons}"></Button>
-            <Button Content="Load network" Command="{Binding LoadNetworkSource}" Style="{StaticResource LearningButtons}"></Button>
+            <Button 
+                Content="Load network" 
+                Command="{Binding LoadNetworkSource}" 
+                Style="{StaticResource LearningButtons}"></Button>
         </StackPanel>
         
     </Grid>

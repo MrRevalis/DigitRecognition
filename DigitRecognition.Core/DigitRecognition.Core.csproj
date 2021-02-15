@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModels\ApplicationPage.cs" />
-    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Extensions\ExtensionMethods.cs" />
     <Compile Include="Helpers\RandomClass.cs" />
     <Compile Include="NeuralNetwork\ActivationMethods\Sigmoid.cs" />
     <Compile Include="NeuralNetwork\DataSet\DataSet.cs" />
