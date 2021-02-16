@@ -78,7 +78,7 @@ namespace DigitRecognition.Core
                 if (cancellationToken.IsCancellationRequested)
                     return;
 
-                string message = $"Sample {epoch} " +IoC.Get<Network>().Learn(LearningData, cancellationToken);
+                string message = $"Sample {epoch + 1} " +IoC.Get<Network>().Learn(LearningData, cancellationToken);
 
 
                 if(LearningProgress.Length >= 1)

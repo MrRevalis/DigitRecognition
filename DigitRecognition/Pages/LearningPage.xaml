@@ -19,7 +19,8 @@
         <StackPanel Margin="5 1 5 1">
             <Label
                 Content="Progress of network learning"></Label>
-            <TextBox 
+            <TextBox
+                Style="{StaticResource TextBoxScroll}"
                 Text="{Binding LearningProgress}" 
                 prop:AutoScrollProperty.AutoScrollSettings="True"
                 MaxHeight="150"
