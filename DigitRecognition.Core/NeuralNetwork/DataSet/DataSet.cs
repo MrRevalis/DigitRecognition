@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Linq;
 
 namespace DigitRecognition.Core
 {
@@ -76,6 +77,15 @@ namespace DigitRecognition.Core
                 colorArray[i] = Color.FromArgb(dataArray[i]).GetBrightness();
             }
             Brightness = colorArray;
+        }
+
+        //CSV Read
+        public DataSet(string[] dataLine)
+        {
+            Brightness = dataLine.Reverse().Skip(1).Select(x => double.Parse(x) / 255).ToArray();
+
+            Name = new double[10];
+            Name[int.Parse(dataLine.Last())] = 1;
         }
     }
 }

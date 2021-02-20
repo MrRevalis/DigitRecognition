@@ -96,7 +96,7 @@ namespace DigitRecognition.Core
         {
             LoadingData = true;
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
+            openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.PNG,*.CSV)|*.BMP;*.JPG;*.PNG;*.CSV";
             openFileDialog.Multiselect = true;
 
             if(openFileDialog.ShowDialog() == true)
@@ -106,7 +106,12 @@ namespace DigitRecognition.Core
 
                 foreach(var x in files)
                 {
-                    LearningData.Add(new DataSet(x));
+                    if (x.Extension.Equals(".csv"))
+                    {
+                        LoadCSV(x);
+                    }
+                    else
+                        LearningData.Add(new DataSet(x));
                 }
             }
             LoadingData = false;
@@ -139,6 +144,16 @@ namespace DigitRecognition.Core
                 MessageBox.Show("Utworzono");
                 Console.WriteLine(IoC.Get<Network>().LearningRate);
             }
+        }
+
+        private void LoadCSV(FileInfo file)
+        {
+            var dataInfo = File.ReadAllLines(file.FullName);
+            foreach(var x in dataInfo.Skip(1))
+            {
+                LearningData.Add(new DataSet(x.Split(',')));
+            }
+            dataInfo = null;
         }
     }
 }
